@@ -4,6 +4,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :resource_name, :resource, :devise_mapping
 
+  def after_sign_in_path_for(_resource)
+    if current_user && current_user.is_admin == true
+      admin_bookings_path
+    else
+      bookings_path
+    end
+  end
+
   def resource_name
     :user
   end

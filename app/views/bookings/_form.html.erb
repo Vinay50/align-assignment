@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-3 offset-sm-3 col-xs-12 back-ground user-forms">
+      <% if action_name == "new" %>
+      <h3 class="text-center header_color">New desk</h3>
+      <% else %>
+      <h3 class="text-center header_color">Edit desk</h3>
+      <% end %>
+      <%= form_for (@booking)  do |f| %>
+         <% if @booking.errors.any? %>
+            <div id="error_explanation">
+              <h4><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being
+                saved:</h4>
+              <ul>
+                <% @booking.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        <div class="form-group">
+          <%= f.label :choose_seat %>
+          <%= f.text_field :seat, :autofocus => true, :class => 'form-control'%>
+        </div>
+        <div class="form-group">
+          <%= f.label :start_date %>
+          <%= f.text_field :start_date, :class => 'form-control pickadate'%>
+        </div>
+        <div class="form-group">
+          <%= f.label :end_date %>
+          <%= f.text_field :expiration_date, :class => 'form-control pickadate'%>
+        </div>
+        <div class="form-group">
+          <%= submit_tag("Submit", :class => "btn btn-success form-control", :name => "submit") %>
+          </div>
+
+          <%= link_to "Back", bookings_path %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.pickadate').pickadate();
+  });
+</script>
+
+</script>
+

@@ -1,0 +1,25 @@
+<h3 class="text-center header_color">Booking Details</h3>
+<div class="container">
+  <table class="table table-bordered">
+   <thead>
+    <tr>
+      <th class="text-center">Name</th>
+      <th class="text-center">Desk</th>
+      <th class="text-center">Booking from</th>
+      <th class="text-center">Booking till</th>
+      <th class="text-center">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center">
+        <td><%= @booking.seat %></td>
+        <td><%= @booking.user.name %></td>
+        <td><%= @booking.seat %></td>
+        <td><%= @booking.start_date.strftime("%d") %>--<%= @booking.expiration_date.strftime("%B %d") %> </td>
+        <td><a href="javascript:history.back()">back</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

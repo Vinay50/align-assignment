@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row user_forms">
-      <div class="col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-xs-12 set_priority_edit">
+      <div class="col-md-6 col-md-offset-4 col-sm-4 offset-sm-4 col-xs-12 back-ground user-forms">
         <h2 class="header_color">Change your password</h2>
         <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
           <%= devise_error_messages! %>

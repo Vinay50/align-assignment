@@ -1,0 +1,27 @@
+<div class="container"></br>
+  <div class="thank_you">
+    <h2 class="text-center"> Thank you <span><%= current_user.name if current_user %> </span>for booking with us.</h2>
+    <div class="row">
+      <h3>Confimed Booking Details</h3></br>
+      <div class="col-lg-5">
+        <p><span><strong>Tour Name: </strong></span><span><%= @tour.tour_name %></span></p>
+        <p><span><strong>Booking Date: </strong></span><span><%= Date.today.strftime("%B %d, %Y") %></span></p>
+        <p><span><strong>Journey Date: </strong></span><span><%= @booking.tour_date.strftime("%B %d, %Y") %></span></p>
+        <p><span><strong>Duration: </strong></span><span><%= @tour.duration %></span></p>
+        <p><span><strong>Route: </strong></span><span><%= @tour.route %></span></p>
+      </div>
+      <div class="col-lg-4">
+        <p><span><strong>No of Passenger: </strong></span><span><%= @booking.customer_count %></span></p>
+        <p><span><strong> Total amount: </strong></span><span>$<%= @booking.booking_amount %></span></p>
+        <p><span><strong> Amount paid: </strong></span><span>$<%= 25 %></span></p>
+        <p><span><strong>Site: </strong></span><span><%= @tour.site %></span></p>
+      </div>
+      <div class="col-lg-3">
+        <%= image_tag @tour.avatar.thumb.to_s, :alt => "tour", :width => "100%", :height => "165px", :class => "pull-right" %>
+      </div>
+    </div>
+    </br>
+    <p class="text-center" style="font-size: 21px">Your booking is completed. We will send you email with link for
+      payment.</p>
+  </div>
+</div>
