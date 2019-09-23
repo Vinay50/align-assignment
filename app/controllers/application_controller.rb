@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, prepend: false
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
   helper_method :resource_name, :resource, :devise_mapping
 
   def after_sign_in_path_for(_resource)
@@ -9,6 +10,18 @@ class ApplicationController < ActionController::Base
       admin_bookings_path
     else
       bookings_path
+    end
+  end
+
+  def view_cancel_booking_link?
+    true if current_user.try(:is_admin?)
+  end
+
+  def redirect_unless_admin!
+    unless current_user.try(:is_admin?)
+      binding.pry
+      flash[:error] = "You are not authorized to access this page!"
+      redirect_to root_path
     end
   end
 

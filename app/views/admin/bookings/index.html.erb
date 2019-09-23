@@ -18,6 +18,10 @@
         <td><%= booking_detail.start_date.strftime("%B %d") if booking_detail.start_date %>--<%= booking_detail.expiration_date.strftime("%B %d") if booking_detail.expiration_date %> </td>
         <td class="text-center"><%= link_to "View", booking_path(booking_detail.id), class: "btn btn-primary btn-xs", style: "margin-left:5px" %>
           <%= link_to "Edit", edit_booking_path(booking_detail.id), class: "btn btn-primary btn-xs", style: "margin-left:5px" %>
+          <% if booking_detail.expiration_date >= Date.today %>
+            <%= link_to "Cancel Booking", edit_admin_booking_path(booking_detail.id), class: "btn btn-primary btn-xs", style: "margin-left:5px" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
     </tbody>

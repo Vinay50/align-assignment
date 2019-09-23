@@ -1,5 +1,5 @@
 class Admin::BookingsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  before_action :redirect_unless_admin!
 
   def show
     @booking = Booking.find(params[:id])
@@ -21,7 +21,7 @@ class Admin::BookingsController < ApplicationController
     binding.pry
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
-    @booking.status = "active"
+    @booking.status = "Booked"
     if @booking.save
       flash[:success] = "seat added!"
       redirect_to bookings_path
@@ -48,6 +48,17 @@ class Admin::BookingsController < ApplicationController
   def thank_you
     @tour = Booking.find(params[:tour_id])
     @booking = Booking.last
+  end
+
+  def cancel_booking
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      @booking.status = "Canceled"
+      flash[:success] = "Desk updated!"
+      redirect_to bookings_path
+    else
+      render :edit
+     end
   end
 
   private

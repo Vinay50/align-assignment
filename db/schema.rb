@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_20_084955) do
+ActiveRecord::Schema.define(version: 2019_09_22_085530) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "seat"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_06_20_084955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+    t.text "cancellation_reason"
+    t.text "cancellation_comment"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -33,6 +35,7 @@ ActiveRecord::Schema.define(version: 2019_06_20_084955) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.boolean "is_admin"
+    t.boolean "active", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

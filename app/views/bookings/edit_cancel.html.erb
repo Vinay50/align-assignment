@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-3 offset-sm-3 col-xs-12 back-ground user-forms">
+      <% if action_name == "new" %>
+      <h3 class="text-center header_color">New desk</h3>
+      <% else %>
+      <h3 class="text-center header_color">Edit desk</h3>
+      <% end %>
+      <%= form_for @booking, :url => {:controller => "/bookings", :action => "cancel"}, html: {method: :post }  do |f| %>
+        <%=f.hidden_field :id,:value=> f.object.id%>
+        <div class="form-group">
+          <%= f.label :cancellation_reason %>
+          <%= f.text_field :cancellation_reason, :class => 'form-control'%>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :cancellation_comment %>
+          <%= f.text_field :cancellation_comment, :class => 'form-control'%>
+        </div>
+
+        <div class="form-group">
+          <%= submit_tag("Cancel", :class => "btn btn-success form-control", :name => "submit") %>
+        </div>
+
+        <%= link_to "Back", bookings_path %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
