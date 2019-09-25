@@ -15,6 +15,11 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require pickadate/picker
+//= require datatables
 //= require pickadate/picker.date
 //= require pickadate/picker.time
 //= require_tree .
+
+$(document).ready(function() {
+  $(".dttb").dataTable();
+});

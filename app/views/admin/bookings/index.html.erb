@@ -1,7 +1,7 @@
 <h3 class="text-center header_color header-top">Bookings</h3>
 <div class="data_table_res container">
   <%= link_to "Add desk", new_booking_path, :class => "pull-right" %>
-  <table class="table table-bordered">
+  <table class="table table-bordered dttb">
     <thead>
     <tr class="table-heading">
       <th class="text-center">Name</th>
@@ -16,10 +16,13 @@
         <td><%= booking_detail.user.name %></td>
         <td><%= booking_detail.seat %></td>
         <td><%= booking_detail.start_date.strftime("%B %d") if booking_detail.start_date %>--<%= booking_detail.expiration_date.strftime("%B %d") if booking_detail.expiration_date %> </td>
-        <td class="text-center"><%= link_to "View", booking_path(booking_detail.id), class: "btn btn-primary btn-xs", style: "margin-left:5px" %>
-          <%= link_to "Edit", edit_booking_path(booking_detail.id), class: "btn btn-primary btn-xs", style: "margin-left:5px" %>
+        <td class="text-center">
           <% if booking_detail.expiration_date >= Date.today %>
-            <%= link_to "Cancel Booking", edit_admin_booking_path(booking_detail.id), class: "btn btn-primary btn-xs", style: "margin-left:5px" %>
+            <%= link_to "Cancel", edit_admin_booking_path(booking_detail.id), class: "", style: "margin-left:5px" %>
+            <%= link_to "View", booking_path(booking_detail.id), class: "", style: "margin-left:5px" %>
+            <%= link_to "Edit", edit_booking_path(booking_detail.id), class: "", style: "margin-left:5px" %>
+            <% else %>
+             <%= link_to "Past", "", class: "", style: "margin-left:5px" %>
           <% end %>
         </td>
       </tr>

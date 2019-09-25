@@ -12,7 +12,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <div class="">
         <ul class="nav navbar-nav navbar-right header-list-font-familty">
-            <li class="list-dropdown"><%= link_to "bookings", bookings_path %>
+            <li class="list-dropdown"><%= link_to "Bookings", admin_bookings_path %>
+            <li class="list-dropdown"><%= link_to "Users", admin_users_path %>
             </li>
           <% if user_signed_in? %>
             <li class="dropdown">
