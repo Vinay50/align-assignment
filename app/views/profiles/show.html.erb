@@ -1,0 +1,152 @@
+<!--start of login form-->
+<section>
+  <div class="container">
+    <div class="user_forms">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs text-center" role="tablist">
+        <li role="presentation" class="active">
+          <a href="#profile" aria-controls="home" role="tab" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#password" aria-controls="profile" role="tab" data-toggle="tab">Password</a>
+        </li>
+        <li role="presentation">
+          <a href="#preferences" aria-controls="messages" role="tab" data-toggle="tab">Preferences</a></li>
+      </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="profile">
+          <!-- <div class="user_forms"> -->
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+              <h3 class="text-center">Profile Details</h3></br>
+              <%= form_for @user, url: {action: "update"}, html: {multipart: true} do |f| %>
+                <div class="form-group">
+                  <label for="firstname" class="control-label ">First
+                    Name<sup><span class="glyphicon glyphicon-asterisk red-star" aria-hidden="true"></span></sup>:</label>
+                  <%= f.text_field :first_name, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label for="lastname" class="control-label ">Last
+                    Name<sup><span class="glyphicon glyphicon-asterisk red-star" aria-hidden="true"></span></sup>:</label>
+                  <%= f.text_field :last_name, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="control-label ">Email<sup><span class="glyphicon glyphicon-asterisk red-star" aria-hidden="true"></span></sup>:</label>
+                  <%= f.text_field :email, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label for="street" class="control-label ">Street No</label>
+                  <%= f.text_field :street_1, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label for="address" class="control-label ">Address, Line2</label>
+                  <%= f.text_field :street_2, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label for="zipcode" class="control-label ">Zip Code</label>
+                  <%= f.text_field :zip_code, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label for="city" class="control-label ">City</label>
+                  <%= f.text_field :city, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label for="state" class="control-label ">State/Region</label>
+                  <%= f.text_field :state, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label for="country" class="control-label ">Country</label>
+                  <select class="form-control" id="sel1">
+                    <option>India</option>
+                    <option>Bharat</option>
+                    <option>Hindustan</option>
+                    <option>Bharatvrsh</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="phno" class="control-label ">Phone No</label>
+                  <%= f.text_field :mobile_number, :class => 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <label for="birthdate" class="control-label ">Date of Birth</label>
+                  <%= f.text_field :dob, :class => 'form-control' %>
+                </div>
+                <div><sup><span class="glyphicon glyphicon-asterisk red-star" aria-hidden="true"></span></sup>Fields
+                  required for booking
+                </div>
+                </br>
+                <div class="form-group">
+                  <%= f.submit "Update", :class => "btn btn-success form-control" %>
+                </div>
+              <% end %>
+              <hr>
+            </div>
+          </div>
+          <!-- </div>  -->
+        </div>
+        <div role="tabpanel" class="tab-pane" id="password">
+          <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+            <h3 class="text-center">Change Password</h3>
+            <hr>
+            <form>
+              <div class="form-group">
+                <label for="password" class="control-label ">Current Password</label>
+                <input type="password" class="form-control" id="current_passwd" placeholder="Current Password">
+              </div>
+              <div class="form-group">
+                <label for="password" class="control-label ">New Password (6 to 32 characters long)</label>
+                <input type="password" class="form-control" id="new_passwd" placeholder="New Password">
+              </div>
+              <div class="form-group">
+                <label for="password" class="control-label ">Confirm New Password</label>
+                <input type="password" class="form-control" id="confirm_passwd" placeholder="Confirm Password">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-info form-control">Change Password</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane " id="preferences">
+          <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
+            <h3 class="text-center">Preferences</h3>
+            <hr>
+            <form>
+              <div class="form-group">
+                <label for="payment" class="control-label ">Payment Method:</label>
+                <select class="form-control" id="payment">
+                  <option>Please Select</option>
+                  <option>Credit Card</option>
+                  <option>Paypal</option>
+                  <option>Debit Card</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="social" class="control-label ">Social Networks:</label>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-info form-control facebook_btn">
+                    <i class="fa fa-facebook pull-left"></i>Log in with Facebook
+                  </button>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-info form-control google_btn">
+                    <i class="fa fa-google pull-left"></i>Log in with Google
+                  </button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="newsletter" class="control-label ">Newsletter:</label>
+                <div class="checkbox ">
+                  <label><input type="checkbox"> Yes! Send me the GetYourGuide newsletter so I can stay on top of travel
+                    deals and tips.</label>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-info form-control">Change Password</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
