@@ -20,6 +20,9 @@ gem 'bootsnap', '>= 1.1.0', require: false # Reduces boot times through caching;
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'devise' # Flexible authentication solution for Rails with Warden
+gem 'delayed_job_active_record'
+gem 'delayed_job_web'
+gem "daemons"
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-datatables'
 gem 'jquery-rails' # Add juery
@@ -27,6 +30,7 @@ gem 'ordinare'
 gem 'pickadate-rails'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'simple_form' # Rails forms made easy.
+gem 'crono'
 gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do

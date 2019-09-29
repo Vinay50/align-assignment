@@ -19,7 +19,7 @@ class Booking < ApplicationRecord
   end
 
   def expiration_date_cannot_be_less_than_start_date
-    errors.add(:start_date, 'can not be less than expiration date') if start_date.present? && expiration_date.present? && expiration_date < start_date
+    errors.add(:start_date, 'can not be greater than expiration date') if start_date.present? && expiration_date.present? && expiration_date < start_date
   end
 
   def desk_alreay_taken
