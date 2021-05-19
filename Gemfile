@@ -10,7 +10,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
-gem 'puma', '~> 3.11' # Use Puma as the app server
+gem 'puma', '~> 4.3' # Use Puma as the app server
 gem 'rails', '~> 5.2.3' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'sqlite3' # Use sqlite3 as the database for Active Record
